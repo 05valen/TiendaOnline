@@ -1,0 +1,82 @@
+<% include partials/_header %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-10">
+      
+      <form action="/add" method="POST">
+        <div class="form-group">
+          <h3>Registro de empleado</h3>
+          <input type="text" name="Documento" placeholder="Documento" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="Nombre" placeholder="Nombre " class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <p>Tipos: Profesor  o Administrativo</p>
+          <input type="text" name="TipoPersona" placeholder="Tipo de Persona" class="form-control">
+        </div>
+        <div class="form-group">
+          <p>Tipo profesor: Planta  o Contratista</p>
+          <input type="text" name="TipoProfesor" placeholder="Tipo de Persona" class="form-control">
+        </div>
+      
+      <br>
+        <div class="form-group">
+          <span class="symbol-input100">
+            <i class="fas fa-building"></i>
+          </span>
+          <select name="Area" >
+              <option value="0">Asignacion de Areas</option>
+              <%for (var i = 0; i < areaa.length; i++) {%>
+                  <option value="<%= areaa[i].NombreArea %>"><%= areaa[i].NombreArea %></option>
+              <% } %>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <i class="fa fa-check-circle"></i>
+         Agregar Persona
+        </button>
+      </form>  <br><br><br>
+      <table class="table table-bordered table-hover  table table-dark">
+        <thead>
+          <tr>
+            <td>Id</td>
+            <td>Documento</td>
+            <td>Nombre</td>
+            <td>Tipo Persona</td>
+            <td>Tipo Profesor</td>
+            <td>Area</td>
+            <td>Actions</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (person) { %>
+            <% for(var i = 0; i < person.length; i++) { %>
+              <tr>
+                <td><%= (i + 1) %></td>
+                <td><%= person[i].Documento %></td>
+                <td><%= person[i].Nombre %></td>
+                <td><%= person[i].TipoPersona %></td>
+                <td><%= person[i].TipoProfesor %></td>
+                <td><%= person[i].Area %></td>
+     
+          
+                <td>
+                  <a href="/update/<%= person[i].IdPersona %>" class="btn btn-info" style="width: 100%;"> <i class="fas fa-user-edit "></i></a>
+                  <a href="/delete/<%= person[i].IdPersona %>" class="btn btn-danger"style="width: 100%;"><i class="fas fa-trash-alt"></i></a>
+                </td>
+              </tr>
+            <% } %>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+
+
+    
+ 
+  </div>
+</div>
+
+<% include partials/_footer %>

@@ -1,0 +1,43 @@
+<% include partials/_header %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-9">
+      <table class="table table-bordered table-hover  table table-dark">
+          <h2>Informe de Empleados</h2>
+        <thead>
+          <tr>
+            <td>Nº</td>
+            <td>Documento</td>
+            <td>Nombre</td>
+            <td>TipoPersona</td>
+            <td>TipoProfesor</td>
+            <td>Area</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (data) { %>
+            <% for(var i = 0; i < data.length; i++) { %>
+              <tr>
+                <td><%= (i + 1) %></td>
+                <td><%= data[i].Documento %></td>
+                <td><%= data[i].Nombre %></td>
+                <td><%= data[i].TipoPersona %></td>
+                <td><%= data[i].TipoProfesor %></td>
+                <td><%= data[i].Area %></td>
+      
+              </tr>
+            <% } %>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-5">
+      <div class="card-body">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include partials/_footer %>

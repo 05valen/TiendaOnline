@@ -1,0 +1,37 @@
+<% include partials/_header %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-7">
+      <table class="table table-bordered table-hover  table table-dark">
+          <h2>Informe de Areas</h2>
+        <thead>
+          <tr>
+            <td>Nº</td>
+            <td>codigo Oficina</td>
+            <td>Nombre area</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (data) { %>
+            <% for(var i = 0; i < data.length; i++) { %>
+              <tr>
+                <td><%= (i + 1) %></td>
+                <td><%= data[i].CodOficina %></td>
+                <td><%= data[i].AreaO %></td>
+            
+              </tr>
+            <% } %>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-5">
+      <div class="card-body">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include partials/_footer %>

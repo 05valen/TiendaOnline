@@ -1,0 +1,30 @@
+<% include partials/_header %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 offset-md-3 card">
+      <div class="card-body">
+        <center>
+          <img src="../public/assets/oficanaa.jpg" class="d-block w-50 ImagenC"
+          alt="..."> <br><br>
+        </center>
+        <form action="/update_ofi/<%= data.IdOficina %>" method="POST">
+          <div class="form-group">
+            <input type="text" name="CodOficina" value="<%= data.CodOficina%>" placeholder="Codigo de oficina" class="form-control" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="NombrePersona" value="<%= data.NombrePersona%>" placeholder="Persona al que pertenece" class="form-control" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="AreaO" value="<%= data.AreaO%>" placeholder="Area al que pertenece" class="form-control" autofocus>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Registrar Oficina
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include partials/_footer %>

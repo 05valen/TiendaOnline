@@ -1,0 +1,24 @@
+<% include partials/_header %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 offset-md-3 card">
+      <div class="card-body">
+     <center>
+      <img src="../public/assets/area.jpg"  style="width:200px;height: 200px;" class="d-block ImagenC"
+      alt="..."> <br><br>
+     </center>
+        <form action="/update_salon/<%= data.Consecutivo %>" method="POST">
+          <div class="form-group">
+            <input type="text" name="Consecutivo" value="<%= data.Consecutivo%>" placeholder="Codigo del salon" class="form-control" autofocus>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Registrar Salon
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include partials/_footer %>
