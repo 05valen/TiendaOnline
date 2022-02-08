@@ -35,6 +35,18 @@ controller.save = (req, res) => {
   })
 };
 
+controller.save1 = (req, res) => {
+  const data = req.body;
+  console.log(req.body)
+  req.getConnection((err, connection) => {
+    const query = connection.query('INSERT INTO producto set ?', [data], (err, producto) => {
+      console.log(producto)
+      res.redirect('personaRoute');
+    })
+  })
+};
+
+
 controller.edit = (req, res) => {
   const { IdPersona } = req.params;
   req.getConnection((err, conn) => {
